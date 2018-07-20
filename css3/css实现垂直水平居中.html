@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>CSS水平垂直居中实现方式--定位实现</title>
+        <style type="text/css">
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            
+            .p {
+                width: 500px;
+                height: 500px;
+                border: 1px solid red;
+                display: flex;
+                display: -webkit-flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                /* align-content:center; */
+            }
+            
+            .c1 {
+                width: 200px;
+                height: 200px;
+                border: 1px solid green;
+                /* align-self: flex-end; */
+
+                flex:1;
+                
+            }
+            .c2 {
+                width: 200px;
+                height: 200px;
+                border: 1px solid green;
+                /* align-self: flex-end; */
+
+                flex:1;
+                
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="p">
+            <div class="c1">
+                11gate的区别（考察点与上一条重叠，切入点不同）。8、JS变量提升、匿名函数、原型继承、作用域、闭包机制等。9、对HTTP协议的理解。10、Ajax的常用操作，JS跨域的实现原理。
+            </div>
+            <div class="c2">
+                22gate的区别（考察点与上一条重叠，切入点不同）。8、JS变量提升、匿名函数、原型继承、作用域、闭包机制等。9、对HTTP协议的理解。10、Ajax的常用操作，JS跨域的实现原理。
+            </div>
+            
+        </div>
+
+    </body>
+
+</html>
