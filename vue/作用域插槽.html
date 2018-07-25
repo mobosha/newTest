@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <todo-list v-bind:todos="todos">
+            <!-- 将 `slotProps` 定义为插槽作用域的名字 -->
+            <template slot-scope="slotProps">
+                <!-- 为待办项自定义一个模板，-->
+                <!-- 通过 `slotProps` 定制每个待办项。-->
+                <span v-if="slotProps.todo.isComplete">✓</span>
+                {{ slotProps.todo.text }}
+            </template>
+        </todo-list>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script>
+        import todoList from "./todoList.vue"  //浏览器不支持es6语法，需要webpack配置打包
+        // console.log(todoList)
+        var app = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    todos: [
+                        {
+                            id:0,
+                            text: "hahaha",
+                            isComplete: true
+                        },
+                        {
+                            id:1,
+                            text: "hehehe",
+                            isComplete: false
+                        }
+                    ]
+                };
+            },
+            methods: {
+
+            }
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #app div {
+            padding: 20px;
+        }
+
+        #app div {
+            background-color: aqua;
+        }
+
+        #app div>div {
+            background-color: blueviolet;
+        }
+
+        #app div>div>div {
+            background-color: brown;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <div @click="parent">parent
+            <div @click.stop="child">child
+                <div @click="grandson">grandson</div>
+            </div>
+        </div> -->
+
+        <!-- <div @click.capture="parent">parent
+            <div @click="child">child
+                <div @click="grandson">grandson</div>
+            </div>
+        </div> -->
+
+        <!-- .capture.stop一起使用的作用是 阻止捕获， .stop 单独是阻止冒泡 .captuer单独使用就是捕获模式  什么都没有是冒泡模式-->
+        <!-- <div @click.capture.stop="parent" style="background-color: aqua">parent
+            <div @click="child" style="background-color:blue">child
+                <div @click="grandson" style="background-color:brown">grandson</div>
+            </div>
+        </div> -->
+
+        <!-- <div @click="parent" style="background-color: aqua">parent
+            <div @click.stop="child" style="background-color:blue">child
+                <div @click.capture="grandson" style="background-color:brown">grandson</div>
+            </div>
+        </div> -->
+
+        <!-- <div @click="parent">parent
+            <div @click.once="child">child
+                <div @click="grandson">grandson</div>
+            </div>
+        </div> -->
+
+        <!-- <div @click="parent">parent
+            <div @click.self="child">child
+                <div @click="grandson">grandson</div>
+            </div>
+        </div> -->
+
+        <!-- <a href="www.baidu.com" @click.prevent="parent">超链接</a>   -->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!'
+            },
+            methods: {
+                parent() { console.log("parent") },
+                child() { console.log("child") },
+                grandson() { console.log("grandson") }
+            }
+        })
+    </script>
+</body>
+
+</html>
