@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // function make() {
+        //     console.log(this)
+        //     return () => {
+        //         console.log(this);
+        //     }
+        // }
+        
+        // var make = function () {
+        //     console.log(this);
+        //     return  () => {
+        //         console.log(this);
+
+        //     }
+        // }
+        // console.log(typeof make)
+        // var testFunc = make.call({ name: 'foo' });
+        // testFunc();
+        // testFunc.call({ name: 'bar' });
+            
+        // var s = {
+        //     add:function(piece){
+        //         console.log(piece)
+        //     },
+        //     addAll:function addAll(pieces){
+        //         var self = this;
+        //         console.log(self)
+        //         pieces.forEach( function(piece){
+        //             console.log(this)
+        //             self.add(piece);
+        //         });
+        //     }
+        // }
+        // s.addAll([1,2,3]);
+
+        // var obj = {"a":1,"b":2};
+        // console.log(obj);
+        // var s = obj.toString();
+        // var o = s+"a";
+        // console.log(o)
+        // alert(s)
+
+        function min(x,y,z){
+            // var arguments = 7;
+            console.log(arguments);
+            var args = Array.prototype.slice.call(arguments, 0);
+            console.log(args)
+        }
+        min(1,2,3)
+
+        // var s = (x,y,z)=>{
+        //     console.log(arguments)
+        // }
+        // s(4,5,6)
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

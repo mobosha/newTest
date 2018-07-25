@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+            阻止冒泡事件：
+            function stopBubble(e){
+              if(e&&e.stopPropagation){//非IE
+               e.stopPropagation();
+              }
+              else{//IE
+               window.event.cancelBubble=true;
+              }
+             } 
+    </p>
+
+    <div onclick="aa(event)">aaaaaa</div>
+    <div id="d">ddssdsd</div>
+
+    <script type="text/javascript">
+        var node = document.getElementsByTagName('*');
+        var d = document.getElementById('d');
+        // d.addEventListener('click', function (e) {
+        //   console.log(e);  //e就是事件对象event === arguments[0]
+        //   console.log(this)
+        // }, false);
+       
+        d.attachEvent('onclick',function(e){  //ie8及以下浏览器
+            console.log('attachEvent',e,window.event)
+        },true)
+    
+        
+        // var evets = typeof getEventListeners == 'function' && getEventListeners(d);
+        // // getEventListeners(d)
+    
+        // d.onclick = function(e){
+        //     console.log(this, e,window.event)   //this->当前触发事件的是dom元素  e -> mouseEvent
+        // }
+    
+        // function aa(e){
+        //     console.log(this, e, window.event,this.event)   //this->window   e->mouseEvent
+        // }
+      </script>
+</body>
+</html>

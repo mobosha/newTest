@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div onclick="aa(1)">
+            DOM0的事件具有极好的跨浏览器优势, 会以最快的速度绑定, 如果你通过DOM2绑定要等到JS运行, DOM0不用, 因为DOM0是写在元素上面的
+    </div>
+    <div class="test">
+        <div class="innerTest">事件委派</div>
+    </div>
+    <p>
+        事件模型 dom0 dom2 dom3
+        https://blog.csdn.net/u013194113/article/details/52027275
+
+    </p>
+</body>
+<script>
+var test = document.getElementsByClassName('test')[0]
+var innerTest = document.getElementsByClassName('innerTest')[0]
+// 捕获模式和冒泡模式
+// 第三个参数  true  false  true是事件捕获，false是事件冒泡
+// test.addEventListener('click',function(e){
+//     console.log('test true',this)
+//     e.stopPropagation();  //就是阻止事件的捕获
+// },true)
+
+// innerTest.addEventListener('click',function(e){
+//     console.log('innerTest true', this)
+// },true)
+// test.addEventListener('click',function(e){
+//     console.log('test false', this)
+// },false)
+// innerTest.addEventListener('click',function(e){
+//     console.log('innerTest false', this)
+//     // e.stopPropagation();  //就是阻止事件的冒泡
+// },false)
+
+// dom0 事件模型，
+test.onclick = function(e){
+    console.log(e)  //MouseEvent
+    console.log(this)  //test元素
+
+}
+
+function aa(v){
+    console.log(e)  //MouseEvent
+    console.log(this)  //window
+}
+// dom2 事件模型
+
+
+</script>
+</html>

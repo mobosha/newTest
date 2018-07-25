@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var Book = {}
+        var name = "";
+        console.log(Book)
+        observe(val); // 递归遍历所有子属性
+        Object.defineProperty(Book, "name", {
+            set: function (value) {
+                name = value;
+                console.log('你取了一个书名叫做' + value);
+            },
+            get: function () {
+                return '《' + name + '》'
+            }
+        })
+        console.log(Book)
+        Book.name = 'vue权威指南';  // 你取了一个书名叫做vue权威指南
+        console.log(Book.name);  // 《vue权威指南》
+        console.log(Book);
+
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .a1 {
+            /* margin: 5px; */
+            padding: 5px;
+        }
+
+        .a2 {
+            display: inline;
+            /* margin: 5px; */
+            padding: 5px;
+        }
+
+        .a2::after {
+            content: "";
+            display: block;
+            height: 0;
+        }
+
+        .div1 {
+            background: #000080;
+            border: 1px solid red;
+            /*解决代码*/
+            width: 1000px;
+            overflow: hidden
+        }
+
+        .div2 {
+            background: #800080;
+            border: 1px solid red;
+            height: 100px;
+            margin-top: 10px;
+            width: 1000px
+        }
+
+        .left {
+            display: inline;
+            
+            float: left;
+            width: 190px;
+            height: 200px;
+            background: #DDD;
+            margin: 5px;
+        }
+
+        .right {
+            display: inline;
+            
+            float: right;
+            width: 790px;
+            height: 80px;
+            background: #DDD;
+            margin: 5px;
+        }
+        img{
+            border: 1px solid #dedede;
+            /* float: left; */
+        }
+
+        .Center-Container {  
+    position: relative;  
+    }  
+  
+.Absolute-Center {  
+    background-color: aquamarine;
+  width: 50%;  
+  height: 50%;  
+  overflow: auto;  
+  margin: auto;  
+  position: absolute;  
+  top: 0; left: 0; bottom: 0; right: 0;  
+}  
+.Absolute-Center.is-Fixed {  
+  position: fixed;  
+  z-index: 999;  
+} 
+.Absolute-Center.is-Responsive {  
+  width: 60%;   
+  height: 60%;  
+  min-width: 200px;  
+  max-width: 400px;  
+  padding: 40px;  
+} 
+.Absolute-Center.is-Overflow {  
+  overflow: auto;  
+} 
+.Absolute-Center.is-Resizable {  
+  min-width: 20%;  
+  max-width: 80%;  
+  min-height: 20%;  
+  max-height: 80%;  
+  resize: both;  
+  overflow: auto;  
+} 
+.is-Transformed {   
+  width: 50%;  
+  margin: auto;  
+  position: absolute;  
+  top: 50%; left: 50%;  
+  -webkit-transform: translate(-50%,-50%);  
+      -ms-transform: translate(-50%,-50%);  
+          transform: translate(-50%,-50%);  
+}  
+    </style>
+</head>
+
+<body class="Center-Container">
+    <span class="a1">对于行内元素设置with、height、margin值无效，但对于块级元素，设置这些值是有效的。</span>
+    <div class="a2">sfsfsfsfsf</div>
+
+    <div class="div1">
+        <div class="left">Left</div>
+        <div class="right">Right</div>
+    </div>
+    <div class="div2">
+        div2
+    </div>
+    <div>
+        <img src="img/ta_zanwu.png" alt="">
+        <img src="img/loading.gif" alt="">
+        <img src="img/meixinhao.png" alt="">
+        <img src="img/datingweidenglutouxiang_bg.png" alt="">
+    </div>
+
+    <div style="width: 500px; font-size: 0; -webkit-text-size-adjust: none;">
+        <div style="width: 200px; display: inline-block;background-color: #000080; font-size: 12px; ">11</div>
+        <div style="width: 300px; display: inline-block;background-color: #800080; font-size: 12px;">22</div>
+    </div>
+
+    <div style="width: 500px; font-size: 0; -webkit-text-size-adjust: none;">
+        <i style="width: 200px; display: inline-block; background-color: #000080; font-size: 12px;">111111111</i>
+        <i style="width: 300px; display: inline-block; background-color: #800080; font-size: 12px;">2222222222</i>
+    </div>
+
+    <div style="min-height: 200px;height: auto!important;height:200px; overflow:visible;">
+        ##标签最低高度设置min-height不兼容问题症状：因为min-height本身就是一个不兼容的CSS属性，所以设置min-height时不能很好的被各个浏览器兼容解决方案：如果我们要设置一个标签的最小高度200px，需要进行的设置为：{min-height:200px; height:auto !important; height:200px; overflow:visible;}备注：在B/S系统前端开时，有很多情况下我们又这种需求。当内容小于一个值（如300px）时。容器的高度为300px；当内容高度大于这个值时，容器高度被撑高，而不是出现滚动条。这时候我们就会面临这个兼容性问题。
+
+        作者：知乎用户
+        链接：https://www.zhihu.com/question/28954391/answer/127123448
+        来源：知乎
+        著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+    </div>
+
+    <div style="margin-left: 10px;">
+            IE6双倍边距bug
+            例如“margin-left:10px” 在IE6中，该值就会被解析为20px。
+            
+            解决方案：需要在该元素中加入display:inline 或 display:block 明确其元素类型
+    </div>
+
+    <div class="Absolute-Center is-Fixed is-Responsive is-Overflow is-Resizable ">
+            IE6双倍边距bug
+            例如“margin-left:10px” 在IE6中，该值就会被解析为20px。
+            
+            解决方案：需要在该元素中加入display:inline 或 display:block 明确其元素类型
+            IE6双倍边距bug
+            例如“margin-left:10px” 在IE6中，该值就会被解析为20px。
+            
+            解决方案：需要在该元素中加入display:inline 或 display:block 明确其元素类型
+            IE6双倍边距bug
+            例如“margin-left:10px” 在IE6中，该值就会被解析为20px。
+            
+            解决方案：需要在该元素中加入display:inline 或 display:block 明确其元素类型
+            IE6双倍边距bug
+            例如“margin-left:10px” 在IE6中，该值就会被解析为20px。
+            
+            解决方案：需要在该元素中加入display:inline 或 display:block 明确其元素类型
+            IE6双倍边距bug
+            例如“margin-left:10px” 在IE6中，该值就会被解析为20px。
+            
+            解决方案：需要在该元素中加入display:inline 或 display:block 明确其元素类型
+            IE6双倍边距bug
+            例如“margin-left:10px” 在IE6中，该值就会被解析为20px。
+            
+            解决方案：需要在该元素中加入display:inline 或 display:block 明确其元素类型
+            IE6双倍边距bug
+            例如“margin-left:10px” 在IE6中，该值就会被解析为20px。
+            
+            解决方案：需要在该元素中加入display:inline 或 display:block 明确其元素类型
+            IE6双倍边距bug
+            例如“margin-left:10px” 在IE6中，该值就会被解析为20px。
+            
+            解决方案：需要在该元素中加入display:inline 或 display:block 明确其元素类型
+            IE6双倍边距bug
+            例如“margin-left:10px” 在IE6中，该值就会被解析为20px。
+            
+            解决方案：需要在该元素中加入display:inline 或 display:block 明确其元素类型
+            IE6双倍边距bug
+            例如“margin-left:10px” 在IE6中，该值就会被解析为20px。
+            
+            解决方案：需要在该元素中加入display:inline 或 display:block 明确其元素类型
+            IE6双倍边距bug
+            例如“margin-left:10px” 在IE6中，该值就会被解析为20px。
+            
+            解决方案：需要在该元素中加入display:inline 或 display:block 明确其元素类型
+            IE6双倍边距bug
+            例如“margin-left:10px” 在IE6中，该值就会被解析为20px。
+            
+            解决方案：需要在该元素中加入display:inline 或 display:block 明确其元素类型
+    </div>
+</body>
+
+</html>

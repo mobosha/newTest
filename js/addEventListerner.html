@@ -1,0 +1,48 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title></title>
+</head>
+<body>
+    <div onclick="aa(event)">aaaaaa</div>
+<div id="d">ddssdsd</div>
+  <script type="text/javascript">
+    var node = document.getElementsByTagName('*');
+    var d = document.getElementById('d');
+    // d.addEventListener('click', function (e) {
+    //   console.log(e);  //e就是事件对象event === arguments[0]
+    //   console.log(this)
+      
+    // }, false);
+    // d.addEventListener('click', function () {
+    //   alert('我是第二次');
+    //   console.log(arguments[0]);  //事件对象event
+    // }, false);
+    // d.onclick = function () {
+    //   alert('不规范的绑定');
+    // }
+    // d.addEventListener('click', function () {
+    //   alert(3);
+    // }, true);
+    d.addEventListener('click',function(){  //ie8及以下浏览器
+        console.log('attachEvent',this,window.event)
+    },true)
+
+    // d.addEventListener('mousedown', function (e) {
+    //   console.log('mousedown1',e);
+    // }, true);
+    // d.addEventListener('mousedown', function () {
+    //   alert('mousedown2');
+    // }, true);
+    var evets = typeof getEventListeners == 'function' && getEventListeners(d);
+    // getEventListeners(d)
+
+    d.onclick = function(e){
+        console.log(this, e,window.event)   //this->当前触发事件的是dom元素  e -> mouseEvent
+    }
+
+    function aa(e){
+        console.log(this, e, window.event,this.event)   //this->window   e->mouseEvent
+    }
+  </script>
+</body>
+</html>

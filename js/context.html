@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <script>
+        // 如果只看这个函数，谁都无法确认 `this` 是谁，因为缺乏“上下文”
+        function someFunction() {
+            console.log(this.xxx)
+            console.log(aa)
+        }
+
+        // 解释器在此情形下会将 `this` 视作 `window` 对象（浏览器中）
+        // 由于 `window.xxx` 并不存在，所以会输出 `undefined`
+        someFunction()    // undefined
+    </script> -->
+    <script>
+        // function a() {
+        //     var age = 21;
+        //     var height = 178;
+        //     var weight = 70;
+        //     function b() {
+        //         alert(age);//undefined
+        //         alert(height);//178
+        //         var age = 25;
+        //         height = 180;   //相当于是在全局作用域里声明了height变量。
+        //         alert(age);//25
+        //         alert(height); //180 
+        //     }
+        //     console.log(height)
+        //     b();
+        //     console.log(height)
+        // }
+
+        // a(); //备注：如果在函数作用域内声明变量不加var，相当于是在全局作用域里声明了这个变量。
+        // console.log(height)
+
+
+        // var height;
+
+        // function a() {
+
+        //     var age = 21;
+        //     var height = 178;
+        //     var weight = 70;
+        //     function b() {
+
+        //         alert(age); //undefined
+        //         alert(height); //178
+        //         var age = 25;
+        //         height = 180;
+        //         alert(age); //25
+        //         alert(height); //180
+
+        //     }
+        //     console.log(height)   
+        //     b();
+        //     console.log(height)   
+        // }
+        // a();
+        // console.log(height)    
+
+
+
+
+        var height;
+
+        function a() {
+            function b() {
+
+                alert(age); //undefined
+                alert(height); //178
+                var age = 25;
+                height = 180;
+                alert(age); //25
+                alert(height); //180
+
+            }
+
+            var age = 21;
+            var height = 178;
+            var weight = 70;
+
+            console.log(height)
+            b();
+            console.log(height)
+        }
+        console.log(height)
+
+        a();
+    </script>
+    <style>
+        div {
+            margin: 10px 0;
+            /* display: inline-block;
+        float: left; */
+        }
+
+        div>div {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+        <div class="content">
+        aaaaaa aaaaaa a a a a a a a a
+        </div>
+    </body>
+    
+    <style>
+        body {
+            background: #DDD;
+            position: relative;
+        }
+        .content {
+            width: 800px;
+    
+            position: absolute;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+    
+            background-color: purple;
+        }
+    </style>
+
+</html>

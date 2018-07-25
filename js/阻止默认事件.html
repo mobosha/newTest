@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <a onclick="aa(event)" href="" id="aa">aaaaaaa</a>
+    <form action="">
+        <input type="text">
+        <a href="">a链接</a>
+        <input type="reset" id="reset">
+        <input type="submit" id="submit">
+    </form>
+
+    <p>
+            阻止冒泡事件：
+            function stopBubble(e){
+              if(e&&e.stopPropagation){//非IE
+               e.stopPropagation();
+              }
+              else{//IE
+               window.event.cancelBubble=true;
+              }
+             } 
+    </p>
+
+
+
+    
+    <script>
+        window.onload = function () {
+
+            // 有一些html元素默认的行为，比如说a标签，点击后有跳转动作；form表单中的submit类型的input有一个默认提交跳转事件；reset类型的input有重置表单行为。
+            // 阻止默认事件
+            var reset = document.getElementById("reset");
+            reset.addEventListener("click", function (e) {
+                alert("sdfd");
+                e.preventDefault();
+                // return false ;  //仅仅是在HTML事件属性 和 DOM0级事件处理方法中 才能通过返回 return false 的形式阻止事件宿主的默认行为
+            })
+
+            // var aa = document.getElementById("aa")
+            // aa.onclick = function (e) {
+            //     alert('aa');
+            // e.preventDefault(); 
+            //     return false;  //测试管用,阻止默认事件
+            // }
+
+        }
+
+
+        function aa(e) {
+            alert('aa');
+            // e.preventDefault();
+            return false;  //测试不管用,阻止默认事件
+        }
+
+    </script>
+</body>
+
+</html>
