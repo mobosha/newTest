@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- <script>
+        function asny(count){
+            setTimeout(() => {
+                console.log(count);
+                it.next();
+            }, 1000);
+        }
+        
+
+        function* ajax(){
+            var count = 0;
+            while(true){
+                if(count < 2){
+                    // var tip = yield asny(count); 
+                    // console.log(tip)
+
+                    console.log(yield asny(count))
+                }
+                count++
+            }
+        }
+        var it = ajax();
+        it.next();
+    </script> -->
+
+    <script>
+        function asny(count) {
+            setTimeout(() => {
+                console.log(count);
+                it.next(count);    //next(参数)干了两件事，第一件事是用参数覆盖前一个yield语句的值，第二件事是执行本阶段的代码，
+            }, 1000);
+        }
+
+
+        function* ajax() {
+            for (var i in [1, 2, 3]) {
+                console.log(yield asny(i));
+            }
+            // console.log(yield asny(1));
+            // console.log(yield asny(2));
+            // console.log(yield asny(3));
+        }
+        var it = ajax();
+        it.next();
+    </script>
+
+    <!-- <script>
+        
+        var arr = [request()],count = 0;
+
+        function request() {
+            return new Promise(function (resolve, reject) {
+                // http 请求
+                setTimeout(() => {
+                    console.log(Math.random())
+                    resolve();
+                }, 1000);
+            })
+        }
+
+        function runPromise() {
+            if(count>10) return;
+            arr.shift().then(function (res) {
+                arr.push(request());
+                count ++;
+                runPromise()
+            }, function (err) {
+
+            })
+        }
+
+        runPromise();
+    </script> -->
+</head>
+
+<body>
+
+</body>
+
+</html>

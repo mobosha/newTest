@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>canvas</title>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+</body>
+<script>
+
+
+    /*js*/
+    var img = new Image();   // 创建img元素
+    var canvas = document.getElementById('canvas')
+    var ctx = canvas.getContext('2d');
+    img.src = 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1521260437608&di=e94551a06b820d76061528ed8463e8f6&imgtype=0&src=http%3A%2F%2Fp6.qhimg.com%2Ft016b2acd8540563ac2.jpg';
+
+    img.onload = function () {
+        ctx.drawImage(img, 0, 0,800,800);
+        ctx.font = "30px yahei";   //设置水印文字
+        ctx.fillText("大前端", 1100, 260)
+    }
+</script>
+
+</html>
