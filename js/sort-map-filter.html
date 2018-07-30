@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>https://www.cnblogs.com/yang0901/p/6792531.html</title>
+    <script>
+        var arr = [1,11,2,22,5,4,0];
+        // // 把数组里面当成字符串处理
+        // arr.sort();
+        // console.log(arr);  
+
+
+
+        arr.sort(function(n1,n2){
+            return n1-n2
+        })
+        console.log(arr); 
+
+        
+        var square = arr.map(function(item,i,arr){
+            return item*item
+        })
+        console.log(square);
+
+        var fil = arr.filter(function(item,i,arr){
+            return item>5;
+        });
+        console.log(fil);
+
+
+        // 去除重复,indexOf 数组和字符串中使用区别
+        var arr1 = ['apple', 'strawberry', 'banana', 'pear', 'apple', 'orange', 'orange', 'strawberry'];
+        var filt = arr1.filter(function(item,i,arr){
+            // arr.indexOf(item) != -1
+            return arr.indexOf(item)===i;  
+            //indexOf数组比较使用严格的比较 ===   字符串比较使用非严格 会转换 indexOf内部数据类型
+            // var arr = ['orange', '2016', '2016'] 
+            // arr.indexOf(2016)   
+            // arr.indexOf('2016');  //输出 -1 注意：这里不会做隐式类型转换。
+            
+        })
+        console.log(filt);
+
+
+
+        
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

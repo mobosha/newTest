@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>https://www.cnblogs.com/cjx-work/p/8052865.html</title>
+    <script>
+        let numStr = '2016';
+
+        console.log(numStr.indexOf('2')); //0
+        console.log(numStr.indexOf(2)); //0
+
+        // 看到这里有个小点就是 indexOf 会做简单的类型转换，把数字转换成字符串 '2' 然后再执行
+
+
+        // indexOf数组比较使用严格的比较 ===   字符串比较使用非严格 会转换 indexOf内部数据类型
+        // var arr = ['orange', '2016', '2016'] 
+        // arr.indexOf(2016)   //输出 -1 注意：这里不会做隐式类型转换。
+        // arr.indexOf('2016');   //输出 1 因为此方法从头匹配直到匹配到时返回第一个数组元素的下表，而不是返回全部匹配的下标。
+
+
+        var arr1 = ['apple', 'strawberry', 'banana', 'pear', 'apple', 'orange', 'orange', 'strawberry'];
+        var norepeat = arr1.filter(function(item,i,self){
+           return arr1.indexOf(item) === i;
+        })
+        console.log(norepeat);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

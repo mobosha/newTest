@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var prime = function (len) {
+            var i, j;
+            var arr = [];
+            for (i = 1; i < len; i++) {
+                for (j = 2; j < i; j++) {
+                    if (i % j === 0) {
+                        break;
+                    }
+                }
+                if (i <= j && i != 1) {
+                    arr.push(i);
+                }
+
+            }
+            return arr;
+        };
+        console.log(prime(1000));
+        document.write(prime(1000));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

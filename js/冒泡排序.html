@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>https://www.cnblogs.com/zhouliang/p/6638010.html</title>
+    <script>
+        function sort(elements){
+            for(var i=0;i<elements.length-1;i++){
+                for(var j=0;j<elements.length-i-1;j++){
+                    if(elements[j]>elements[j+1]){
+                        var emp = elements[j];
+                        elements[j] = elements[j+1];
+                        elements[j+1] = emp;
+                    }
+                }
+            }
+        }
+        var elements = [3,1,5,7,2,4,9,6,10,8];
+        console.log("before elements", elements)
+        sort(elements);
+        console.log("after elements", elements)
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
